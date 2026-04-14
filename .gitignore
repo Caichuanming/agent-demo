@@ -1,0 +1,48 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencies
+node_modules/
+**/node_modules/
+packages/*/node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+**/dist/
+.next/
+**/.next/
+out/
+coverage/
+**/coverage/
+.turbo/
+
+# TypeScript
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.*
+!.env.example
+apps/*/.env
+apps/*/.env.*
+
+# Docker / local runtime artifacts
+*.pid
+*.seed
+*.pid.lock
+
+# Nest / Next temporary
+tmp/
+temp/
+.cache/

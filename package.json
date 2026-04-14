@@ -1,0 +1,17 @@
+{
+  "name": "agent-medical-assistant",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Minimal runnable Agent app (AI medical assistant) monorepo",
+  "packageManager": "pnpm@10.10.0",
+  "scripts": {
+    "dev": "pnpm -r --parallel --filter ./apps/* dev",
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "clean": "pnpm -r clean"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "typescript": "^5.8.3"
+  }
+}

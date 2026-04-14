@@ -1,0 +1,31 @@
+{
+  "name": "@project/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "pnpm --filter @project/shared build",
+    "dev": "tsx watch src/main.ts",
+    "prebuild": "pnpm --filter @project/shared build",
+    "build": "tsc -p tsconfig.build.json",
+    "prestart": "pnpm --filter @project/shared build",
+    "start": "node dist/main.js",
+    "pretypecheck": "pnpm --filter @project/shared build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.1",
+    "@nestjs/config": "^4.0.2",
+    "@nestjs/core": "^11.1.1",
+    "@nestjs/platform-express": "^11.1.1",
+    "@project/shared": "workspace:*",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
+  }
+}

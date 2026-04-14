@@ -1,0 +1,29 @@
+{
+  "name": "@project/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "pnpm --filter @project/shared build",
+    "dev": "next dev --hostname 0.0.0.0 --port 3000",
+    "prebuild": "pnpm --filter @project/shared build",
+    "build": "next build",
+    "prestart": "pnpm --filter @project/shared build",
+    "start": "next start --hostname 0.0.0.0 --port 3000",
+    "pretypecheck": "pnpm --filter @project/shared build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "clean": "rm -rf .next"
+  },
+  "dependencies": {
+    "@project/shared": "workspace:*",
+    "next": "15.3.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "typescript": "^5.8.3"
+  }
+}
