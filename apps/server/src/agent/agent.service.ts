@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Inject, Injectable } from "@nestjs/common";
 
 import type { AgentDecision, AgentMode } from "@project/shared";
 
@@ -6,7 +6,9 @@ import { FakeRuleAgentAdapter } from "./adapters/fake-rule-agent.adapter.js";
 
 @Injectable()
 export class AgentService {
-  constructor(private readonly fakeAdapter: FakeRuleAgentAdapter) {}
+  constructor(
+    @Inject(FakeRuleAgentAdapter) private readonly fakeAdapter: FakeRuleAgentAdapter
+  ) {}
 
   async decide(message: string, mode: AgentMode): Promise<AgentDecision> {
     // 预留: mode=llm/auto 时可切换到真实 LLM adapter。

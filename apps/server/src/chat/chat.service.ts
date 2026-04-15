@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 
-import { Injectable } from "@nestjs/common";
+import { Inject, Injectable } from "@nestjs/common";
 
 import type {
   ApiResult,
@@ -16,8 +16,8 @@ import { fail, ok } from "../common/api-result.util.js";
 @Injectable()
 export class ChatService {
   constructor(
-    private readonly agentService: AgentService,
-    private readonly toolsRegistry: ToolsRegistryService
+    @Inject(AgentService) private readonly agentService: AgentService,
+    @Inject(ToolsRegistryService) private readonly toolsRegistry: ToolsRegistryService
   ) {}
 
   async handleChat(request: ChatRequest): Promise<ApiResult<ChatResponse>> {

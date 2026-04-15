@@ -43,6 +43,7 @@ services:
       SERVER_PORT: 3001
       API_PREFIX: ""
       APP_VERSION: v1
+      CORS_ORIGIN: http://localhost:3000
       MYSQL_HOST: mysql
       MYSQL_PORT: 3306
       MYSQL_USER: app

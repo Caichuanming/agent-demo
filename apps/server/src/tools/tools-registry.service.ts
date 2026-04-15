@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Inject, Injectable } from "@nestjs/common";
 
 import type { ToolCall, ToolExecutionResult, ToolName } from "@project/shared";
 
@@ -11,8 +11,8 @@ export class ToolsRegistryService {
   private readonly tools: Map<ToolName, ToolHandler<ToolName>>;
 
   constructor(
-    getOrderTool: GetOrderTool,
-    getDoctorTool: GetDoctorTool
+    @Inject(GetOrderTool) getOrderTool: GetOrderTool,
+    @Inject(GetDoctorTool) getDoctorTool: GetDoctorTool
   ) {
     this.tools = new Map<ToolName, ToolHandler<ToolName>>([
       [getOrderTool.name, getOrderTool as ToolHandler<ToolName>],

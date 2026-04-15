@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Inject, Injectable } from "@nestjs/common";
 
 import type { Doctor, GetDoctorArgs } from "@project/shared";
 
@@ -9,7 +9,9 @@ import type { ToolHandler } from "../tool-handler.interface.js";
 export class GetDoctorTool implements ToolHandler<"getDoctor"> {
   readonly name = "getDoctor" as const;
 
-  constructor(private readonly doctorDomain: DoctorDomainService) {}
+  constructor(
+    @Inject(DoctorDomainService) private readonly doctorDomain: DoctorDomainService
+  ) {}
 
   async execute(args: GetDoctorArgs): Promise<Doctor> {
     return this.doctorDomain.findDoctor(args);

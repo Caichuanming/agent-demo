@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Inject, Injectable } from "@nestjs/common";
 
 import type { GetOrderArgs, Order } from "@project/shared";
 
@@ -9,7 +9,9 @@ import type { ToolHandler } from "../tool-handler.interface.js";
 export class GetOrderTool implements ToolHandler<"getOrder"> {
   readonly name = "getOrder" as const;
 
-  constructor(private readonly orderDomain: OrderDomainService) {}
+  constructor(
+    @Inject(OrderDomainService) private readonly orderDomain: OrderDomainService
+  ) {}
 
   async execute(args: GetOrderArgs): Promise<Order> {
     return this.orderDomain.findOrder(args);
